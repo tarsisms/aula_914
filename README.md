@@ -8,7 +8,7 @@ Para facilitar o acesso aos códigos desenvolvidos nas aulas, teremos um novo `c
 
 1. Abra o terminal
 2. Acesse a pasta onde deseja baixar o projeto.
-3. Utilize o comando (baixar) o projeto: `git clone https://github.com/tarsis/aula_913.git`
+3. Utilize o comando (baixar) o projeto: `git clone https://github.com/tarsis/aula_914.git`
    </br>
 
 ## **Baixando a versão mais atual do projeto**
