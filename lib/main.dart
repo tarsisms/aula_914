@@ -1,4 +1,4 @@
-import 'package:aula_914/home_page.dart';
+import 'package:aula_914/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
