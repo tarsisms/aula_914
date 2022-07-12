@@ -1,25 +1,12 @@
+import 'package:aula_914/domain/pacote_turistico.dart';
 import 'package:flutter/material.dart';
 
 class PacoteTuristicoCard extends StatefulWidget {
-  final String imagem;
-  final String titulo;
-  final int numDiarias;
-  final int numPessoas;
-  final int numParcelas;
-  final String transporte;
-  final double precoAtual;
-  final double precoAntigo;
+  final PacoteTuristico pacoteTuristico;
 
   const PacoteTuristicoCard({
     Key? key,
-    required this.imagem,
-    required this.titulo,
-    required this.numDiarias,
-    required this.numPessoas,
-    required this.numParcelas,
-    required this.transporte,
-    required this.precoAtual,
-    required this.precoAntigo,
+    required this.pacoteTuristico,
   }) : super(key: key);
 
   @override
@@ -27,6 +14,8 @@ class PacoteTuristicoCard extends StatefulWidget {
 }
 
 class _PacoteTuristicoCardState extends State<PacoteTuristicoCard> {
+  PacoteTuristico get pacote => widget.pacoteTuristico;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,7 +26,7 @@ class _PacoteTuristicoCardState extends State<PacoteTuristicoCard> {
             borderRadius: const BorderRadius.vertical(
               top: Radius.circular(8),
             ),
-            child: Image.network(widget.imagem),
+            child: Image.network(pacote.imagem),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -45,30 +34,30 @@ class _PacoteTuristicoCardState extends State<PacoteTuristicoCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.titulo,
+                  pacote.titulo,
                   style: TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 8),
-                Text(widget.transporte),
+                Text(pacote.transporte),
                 SizedBox(height: 8),
                 Row(
                   children: [
                     const Icon(Icons.wb_sunny_outlined),
                     const SizedBox(width: 4),
-                    Text('${widget.numDiarias} Diárias'),
+                    Text('${pacote.numDiarias} Diárias'),
                     const SizedBox(width: 8),
                     const Icon(Icons.person_outline),
                     const SizedBox(width: 4),
-                    Text('${widget.numPessoas} Pessoas'),
+                    Text('${pacote.numPessoas} Pessoas'),
                   ],
                 ),
                 SizedBox(height: 8),
-                Text('A partir de R\$ ${widget.precoAntigo}'),
+                Text('A partir de R\$ ${pacote.precoAntigo}'),
                 Text(
-                  'R\$ ${widget.precoAtual}',
+                  'R\$ ${pacote.precoAtual}',
                   style: const TextStyle(
                     color: Colors.orange,
                     fontSize: 28,
