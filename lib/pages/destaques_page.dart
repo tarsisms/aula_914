@@ -1,3 +1,4 @@
+import 'package:aula_914/data/BD.dart';
 import 'package:aula_914/domain/pacote_turistico.dart';
 import 'package:aula_914/widget/pacote_turistico_card.dart';
 import 'package:aula_914/pages/propaganda_page.dart';
@@ -11,33 +12,11 @@ class DestaquesPage extends StatefulWidget {
 }
 
 class _DestaquesPageState extends State<DestaquesPage> {
-  PacoteTuristico pacote1 = PacoteTuristico(
-    imagem:
-        'https://a.cdn-hotels.com/gdcs/production97/d402/6baff29c-e43b-4caf-a9e8-5dcf1279dea0.jpg?impolicy=fcrop&w=800&h=533&q=medium',
-    titulo: 'Pacote Cancún 2022/2023',
-    transporte: 'Aéreo - Hotel All inclusive',
-    numDiarias: 5,
-    numPessoas: 2,
-    numParcelas: 6,
-    precoAntigo: 6819,
-    precoAtual: 2819,
-  );
-  PacoteTuristico pacote2 = PacoteTuristico(
-    imagem:
-        'https://letsdive.com.br/wp-content/uploads/2019/04/PROCURANDO-MERGULHO-EM-MARAGOGI-CONSIDERE-MACEIO.png',
-    titulo: 'Pacote Maragogi 2023',
-    transporte: 'Hotel All inclusive',
-    numDiarias: 7,
-    numPessoas: 3,
-    numParcelas: 12,
-    precoAntigo: 4819,
-    precoAtual: 819,
-  );
+  List<PacoteTuristico> lista = BD.listaPacotes;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Colors.grey[100],
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -106,11 +85,24 @@ class _DestaquesPageState extends State<DestaquesPage> {
               ),
             ),
             const SizedBox(height: 16),
-            PacoteTuristicoCard(pacoteTuristico: pacote1),
-            PacoteTuristicoCard(pacoteTuristico: pacote2),
+            buildListView(context)
           ],
         ),
       ),
     );
+  }
+
+  buildListView(BuildContext context) {
+    return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: lista.length,
+      itemBuilder: (context, index) {
+        return PacoteTuristicoCard(
+          pacoteTuristico: lista[index],
+        );
+      },
+    );
+    
   }
 }

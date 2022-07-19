@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: Color(0xFF10397B),
-        title: Text(
+        title: const Text(
           'Pesquisar',
           style: TextStyle(fontSize: 24),
         ),
