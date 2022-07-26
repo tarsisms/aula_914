@@ -1,4 +1,5 @@
 import 'package:aula_914/pages/destaques_page.dart';
+import 'package:aula_914/pages/grid_view_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
   List<Widget> pages = [
     const DestaquesPage(),
-    const Center(child: Text('Pagina 2', style: TextStyle(fontSize: 36))),
+    const GridViewPage(),
     const Center(child: Text('Pagina 3', style: TextStyle(fontSize: 36))),
     const Center(child: Text('Pagina 4', style: TextStyle(fontSize: 36))),
   ];

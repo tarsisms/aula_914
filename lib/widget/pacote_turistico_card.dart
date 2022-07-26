@@ -26,7 +26,14 @@ class _PacoteTuristicoCardState extends State<PacoteTuristicoCard> {
             borderRadius: const BorderRadius.vertical(
               top: Radius.circular(8),
             ),
-            child: Image.network(pacote.imagem),
+            child: Container(
+              height: 180,
+              width: double.infinity,
+              child: Image.network(
+                pacote.imagem,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -35,26 +42,30 @@ class _PacoteTuristicoCardState extends State<PacoteTuristicoCard> {
               children: [
                 Text(
                   pacote.titulo,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(pacote.transporte),
-                SizedBox(height: 8),
-                Row(
+                const SizedBox(height: 8),
+                Wrap(
                   children: [
                     const Icon(Icons.wb_sunny_outlined),
                     const SizedBox(width: 4),
                     Text('${pacote.numDiarias} Diárias'),
                     const SizedBox(width: 8),
-                    const Icon(Icons.person_outline),
-                    const SizedBox(width: 4),
-                    Text('${pacote.numPessoas} Pessoas'),
+                    Row(
+                      children: [
+                        const Icon(Icons.person_outline),
+                        const SizedBox(width: 4),
+                        Text('${pacote.numPessoas} Pessoas'),
+                      ],
+                    )
                   ],
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text('A partir de R\$ ${pacote.precoAntigo}'),
                 Text(
                   'R\$ ${pacote.precoAtual}',

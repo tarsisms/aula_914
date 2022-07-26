@@ -103,6 +103,6 @@ class _DestaquesPageState extends State<DestaquesPage> {
         );
       },
     );
-    
+
   }
 }
